@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sinoverse — a universe of shared Sinitic words</title>
+  <meta name="description" content="Sinoverse is an interactive comparative vocabulary explorer for cognate words across Chinese, Cantonese, Hokkien, Japanese, Korean, and Vietnamese." />
+  <meta name="theme-color" content="#05060f" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Sinoverse" />
+  <meta property="og:description" content="Compare 學 · hok · gaku · hak · học — one word family across six languages." />
+  <meta property="og:type" content="website" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9C%A8%3C/text%3E%3C/svg%3E" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- Cosmic background layers -->
+  <div class="cosmos" aria-hidden="true"></div>
+  <div class="stars" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="./" aria-label="Sinoverse home">
+        <span class="brand-mark" aria-hidden="true">學</span>
+        <span>
+          <span class="brand-name">Sinoverse</span>
+          <span class="brand-tag">Comparative Sino-Xenic Lexicon</span>
+        </span>
+      </a>
+
+      <search role="search" class="search-bar">
+        <div class="search-wrap">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="21" y1="21" x2="16.5" y2="16.5"></line>
+          </svg>
+          <label class="visually-hidden" for="search-input">
+            Search by meaning, character, romanization, or language form
+          </label>
+          <input id="search-input" type="search" autocomplete="off" spellcheck="false"
+                 placeholder='Search: “study”, “學”, “hok”, “gaku”, “học”… (press /)' />
+          <button type="button" id="search-clear" class="search-clear" aria-label="Clear search">✕</button>
+        </div>
+      </search>
+
+      <p class="result-count" id="result-count" aria-live="off">— words</p>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="hero container" aria-labelledby="hero-title">
+      <h1 id="hero-title">One character. <span class="accent">Six voices.</span></h1>
+      <p>
+        Sinoverse maps the shared vocabulary of East Asia — how 學 became
+        <em>hok</em>, <em>ha̍k</em>, <em>gaku</em>, <em>hak</em>, and <em>học</em>.
+        Toggle languages, search any form, and open cards for side-by-side comparisons.
+      </p>
+      <p class="cjk-sample" aria-hidden="true">學 · 山 · 水 · 龍 · 星 · 心</p>
+
+      <nav class="lang-bar" id="lang-bar" aria-label="Show or hide languages"></nav>
+    </section>
+
+    <section class="results container" aria-label="Word comparison results">
+      <ul class="grid" id="word-grid"></ul>
+
+      <div class="empty-state" id="empty-state">
+        <span class="empty-glyph" aria-hidden="true">空</span>
+        <p><strong>No constellations match this query.</strong></p>
+        <p>Try a meaning like “water”, a character like “山”, or a reading like “san”.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="foot-glyphs" aria-hidden="true">漢字文化圈</p>
+    <p>
+      Sinoverse prototype v0.1 — sample data lives in <code>data/words.json</code>, ready to grow into a real API.
+      Audio uses your browser’s speech synthesis where voices are installed.
+    </p>
+  </footer>
+
+  <!-- Detail modal -->
+  <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true"
+       aria-labelledby="modal-title" aria-hidden="true">
+    <div class="modal" id="modal"><!-- injected by app.js --></div>
+  </div>
+
+  <!-- A11y live region + toast -->
+  <div class="visually-hidden" id="live-region" role="status" aria-live="polite"></div>
+  <div class="toast" id="toast" aria-hidden="true"></div>
+
+  <script src="js/fallback-data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
